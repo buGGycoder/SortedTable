@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="SortedTable" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/st_test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-std=c89" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/st_test" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c89" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c89" />
+			<Add directory="inc" />
+			<Add directory="common/src" />
+		</Compiler>
+		<Linker>
+			<Add library="pthread" />
+			<Add library="crypto" />
+		</Linker>
+		<Unit filename="inc/Anniversary.h" />
+		<Unit filename="inc/CalendarConstants.h" />
+		<Unit filename="inc/ClassSimulator.h" />
+		<Unit filename="inc/ClosedRange.h" />
+		<Unit filename="inc/Crc32.h" />
+		<Unit filename="inc/Date.h" />
+		<Unit filename="inc/DateTime.h" />
+		<Unit filename="inc/DstTransitionTime.h" />
+		<Unit filename="inc/Error.h" />
+		<Unit filename="inc/File.h" />
+		<Unit filename="inc/FileMapping.h" />
+		<Unit filename="inc/KeyValue.h" />
+		<Unit filename="inc/LocalDateTime.h" />
+		<Unit filename="inc/Lock.h" />
+		<Unit filename="inc/NonBlocking.h" />
+		<Unit filename="inc/Path.h" />
+		<Unit filename="inc/RefCounter.h" />
+		<Unit filename="inc/SizeBuffer.h" />
+		<Unit filename="inc/SizeString.h" />
+		<Unit filename="inc/SizedBuffer.h" />
+		<Unit filename="inc/SizedString.h" />
+		<Unit filename="inc/SortedTable.h" />
+		<Unit filename="inc/SpinLock.h" />
+		<Unit filename="inc/StringBuilder.h" />
+		<Unit filename="inc/Table.h" />
+		<Unit filename="inc/TableFile.h" />
+		<Unit filename="inc/TimeInterval.h" />
+		<Unit filename="inc/TimeZone.h" />
+		<Unit filename="inc/U64.h" />
+		<Unit filename="inc/U64B.h" />
+		<Unit filename="inc/U64F.h" />
+		<Unit filename="inc/protobuf-c.h" />
+		<Unit filename="src/Anniversary.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/ClosedRange.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/Crc32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/Date.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/DateTime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/DstTransitionTime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/File.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/FileMapping.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/KeyValue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/LocalDateTime.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/Lock.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/NonBlocking.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/Path.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/RefCounter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/SizeBuffer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/SizeString.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/SizedBuffer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/SizedString.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/SortedTable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/SpinLock.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/StringBuilder.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/Table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/TableFile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/TimeInterval.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/TimeZone.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/U64.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/U64B.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/U64F.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/main.cc" />
+		<Unit filename="src/protobuf-c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

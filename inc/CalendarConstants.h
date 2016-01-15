@@ -1,0 +1,38 @@
+#ifndef __CALENDARCONSTANTS_H__
+#define __CALENDARCONSTANTS_H__
+
+typedef enum
+{
+    CALENDAR_TYPE_UNKNOWN = 0,
+    CALENDAR_TYPE_GREGORIAN = 1,
+    CALENDAR_TYPE_CHINESE_LUNAR = 2,
+} CALENDAR_TYPE;
+
+typedef enum
+{
+    WEEK_TYPE_UNKNOWN = 0,
+    WEEK_TYPE_ISO_8601 = 1,
+    WEEK_TYPE_ISLAMIC = 2,
+    WEEK_TYPE_NORTH_AMERICAN = 3,
+} WEEK_TYPE;
+
+typedef enum
+{
+    SUNDAY = 0,
+    MONDAY,
+    TUESDAY,
+    WEDNESDAY,
+    THURSDAY,
+    FRIDAY,
+    SATURDAY,
+    DAYS_PER_WEEK,
+} DAY_OF_WEEK;
+
+#define HOURS_PER_DAY (24ULL)
+#define MINUTES_PER_HOUR (60ULL)
+#define SECONDS_PER_MINUTE (60ULL)
+#define MICROSECONDS_PER_SECOND (1000000ULL)
+
+#define TIMEVAL_TO_MICROSECONDS(timeval) (MICROSECONDS_PER_SECOND * (timeval).tv_sec + (timeval).tv_usec)
+
+#endif /* __CALENDARCONSTANTS_H__ */
