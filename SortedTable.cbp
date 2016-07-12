@@ -13,7 +13,6 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add option="-std=c89" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -23,7 +22,6 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add option="-std=c89" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,13 +30,13 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add option="-std=c89" />
 			<Add directory="inc" />
 			<Add directory="common/src" />
 		</Compiler>
 		<Linker>
 			<Add library="pthread" />
 			<Add library="crypto" />
+			<Add library="hiredis" />
 		</Linker>
 		<Unit filename="inc/Anniversary.h" />
 		<Unit filename="inc/CalendarConstants.h" />
@@ -71,7 +69,6 @@
 		<Unit filename="inc/U64.h" />
 		<Unit filename="inc/U64B.h" />
 		<Unit filename="inc/U64F.h" />
-		<Unit filename="inc/protobuf-c.h" />
 		<Unit filename="src/Anniversary.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -156,8 +153,7 @@
 		<Unit filename="src/U64F.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src/main.cc" />
-		<Unit filename="src/protobuf-c.c">
+		<Unit filename="src/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>

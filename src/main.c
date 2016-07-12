@@ -22,7 +22,6 @@ extern "C"
 #include "Table.h"
 #include "SizedBuffer.h"
 #include "SizedString.h"
-#include "HierarchicalStore.h"
 #ifdef __cplusplus
 }
 #endif
@@ -74,23 +73,36 @@ void *thr_fn5(void* arg)
 
 void *thr_fn1(void *arg)
 {
-    thr_fn3(arg);
-    return NULL;
-    /*thr_fn2(arg);
-    return NULL;*/
-
     Table* tbl = (Table*) arg;
 
     int64_t i = 0;
     _SizedBuffer* buffer = SizedBuffer.New(1024 * 1024 * 10);
-    for (; i < 100LL; ++i)
+    for (; i < 10000LL; ++i)
     {
         SizedBuffer.SetSize(buffer, 0);
         int j = 0;
-        for (; j < 100; ++j)
-        {
-            SizedBuffer.AppendFormat(buffer, "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld", i,i,i,i,i,i,i,i,i,i);
-        }
+        SizedBuffer.AppendFormat(buffer,
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i
+                                );
 
         SizedBuffer.AppendFormat(buffer, "\n");
         tbl->Set(tbl, 5000000LL, buffer->data, 1 + SizedBuffer.Size(buffer), buffer->data, 1 + SizedBuffer.Size(buffer), 0, true, NULL);
@@ -131,13 +143,13 @@ extern "C"
 #include <string.h>
 #include <assert.h>
 
-//#include <hiredis/hiredis.h>
+#include <hiredis/hiredis.h>
 
 #ifdef __cplusplus
 }
 #endif
 
-#if FALSE
+#if 1
 
 void *thr_fn2(void *arg)
 {
@@ -156,14 +168,32 @@ void *thr_fn2(void *arg)
     int64_t i = 0;
     _SizedBuffer* buffer = SizedBuffer.New(1024 * 1024 * 10);
     _SizedBuffer* cmd = SizedBuffer.New(1024 * 1024 * 10);
-    for (; i < 100LL; ++i)
+    for (; i < 10000LL; ++i)
     {
         SizedBuffer.SetSize(buffer, 0);
         int j = 0;
-        for (; j < 100; ++j)
-        {
-            SizedBuffer.AppendFormat(buffer, "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld", i,i,i,i,i,i,i,i,i,i);
-        }
+        SizedBuffer.AppendFormat(buffer,
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i,
+                                 i,i,i,i,i,i,i,i,i,i
+                                );
 
         SizedBuffer.SetSize(cmd, 0);
         SizedBuffer.AppendFormat(cmd, "set %s %s", buffer, buffer);
@@ -394,11 +424,11 @@ int main()
     uint64_t t1 = TimeZone_.NowByUtcTotalMicroseconds();
 
     int err;
-    pthread_t thr[1] = {0};
+    pthread_t thr[400] = {0};
     int i = 0;
     for (; i < sizeof(thr) / sizeof(thr[0]); ++i)
     {
-        err = pthread_create(&thr[i], NULL, thr_fn1, tbl);
+        err = pthread_create(&thr[i], NULL, thr_fn2, tbl);
         if (err != 0)
         {
             printf("can't create thread: %s\n", strerror(err));
