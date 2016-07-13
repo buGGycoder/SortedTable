@@ -77,20 +77,20 @@ void *thr_fn1(void *arg)
 
     int64_t i = 0;
     _SizedBuffer* buffer = SizedBuffer.New(1024 * 1024 * 10);
-    for (; i < 10000LL; ++i)
+    for (; i < 100000LL; ++i)
     {
         SizedBuffer.SetSize(buffer, 0);
         int j = 0;
         SizedBuffer.AppendFormat(buffer,
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
                                  "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
                                  i,i,i,i,i,i,i,i,i,i,
                                  i,i,i,i,i,i,i,i,i,i,
@@ -122,10 +122,10 @@ void *thr_fn1(void *arg)
             SizedString.Delete(v);
         }
 
-        if ((TimeZone_.NowByUtcTotalMicroseconds() & 0x1) == (i & 0x1))
+        /*if ((TimeZone_.NowByUtcTotalMicroseconds() & 0x1) == (i & 0x1))
         {
             tbl->Delete(tbl, 5000000LL, buffer->data, 1 + SizedBuffer.Size(buffer), 0, true);
-        }
+        }*/
     }
 
     SizedBuffer.Delete(buffer);
@@ -168,20 +168,20 @@ void *thr_fn2(void *arg)
     int64_t i = 0;
     _SizedBuffer* buffer = SizedBuffer.New(1024 * 1024 * 10);
     _SizedBuffer* cmd = SizedBuffer.New(1024 * 1024 * 10);
-    for (; i < 10000LL; ++i)
+    for (; i < 100000LL; ++i)
     {
         SizedBuffer.SetSize(buffer, 0);
         int j = 0;
         SizedBuffer.AppendFormat(buffer,
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
-                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
+                                 "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld"
                                  "%lld%lld%lld%lld%lld%lld%lld%lld%lld%lld",
                                  i,i,i,i,i,i,i,i,i,i,
                                  i,i,i,i,i,i,i,i,i,i,
@@ -424,11 +424,11 @@ int main()
     uint64_t t1 = TimeZone_.NowByUtcTotalMicroseconds();
 
     int err;
-    pthread_t thr[400] = {0};
+    pthread_t thr[1] = {0};
     int i = 0;
     for (; i < sizeof(thr) / sizeof(thr[0]); ++i)
     {
-        err = pthread_create(&thr[i], NULL, thr_fn2, tbl);
+        err = pthread_create(&thr[i], NULL, thr_fn1, tbl);
         if (err != 0)
         {
             printf("can't create thread: %s\n", strerror(err));
